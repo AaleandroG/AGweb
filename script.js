@@ -1,97 +1,56 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+// COUNTDOWN TEMU
+const countdown = document.getElementById("countdown");
+if(countdown){
+    let endTime = new Date();
+    endTime.setHours(endTime.getHours()+24);
+    function updateCountdown(){
+        const now = new Date().getTime();
+        const distance = endTime-now;
+        const hours = Math.floor((distance/(1000*60*60))%24);
+        const minutes = Math.floor((distance/(1000*60))%60);
+        const seconds = Math.floor((distance/1000)%60);
+        countdown.innerHTML = `⏳ ${hours}h ${minutes}m ${seconds}s restantes`;
+        if(distance<0){ endTime.setHours(endTime.getHours()+24);}
+    }
+    setInterval(updateCountdown,1000);
 }
 
-body {
-    background: #f5f7fb;
-    color: #1e293b;
+// GENERADOR QR
+function generateQR(){
+    const text = document.getElementById("qr-text").value;
+    const color = document.getElementById("qr-color").value;
+    const bg = document.getElementById("qr-bg").value;
+    const qr = new QRious({
+        element: document.createElement('canvas'),
+        value: text,
+        background: bg,
+        foreground: color,
+        size: 200
+    });
+    const container = document.getElementById("qr-result");
+    container.innerHTML = "";
+    container.appendChild(qr.image);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+// TEMPORIZADOR
+let timerInterval;
+function startTimer(){
+    clearInterval(timerInterval);
+    let minutes = parseInt(document.getElementById("timer-minutes").value) || 0;
+    let time = minutes*60;
+    const display = document.getElementById("timer-display");
+    timerInterval = setInterval(()=>{
+        let m = Math.floor(time/60);
+        let s = time%60;
+        display.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        if(time<=0) clearInterval(timerInterval);
+        time--;
+    },1000);
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #2563eb;
-}
-
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #1e293b;
-    font-weight: 500;
-}
-
-.btn-temu {
-    background: #ef4444;
-    color: white !important;
-    padding: 8px 14px;
-    border-radius: 6px;
-}
-
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.hero-buttons a {
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 10px;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: #2563eb;
-    color: white;
-}
-
-.btn-danger {
-    background: #ef4444;
-    color: white;
-}
-
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 60px 10%;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    width: 300px;
-    text-align: center;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    background: white;
-    font-size: 14px;
+// CONTADOR PALABRAS
+function countWords(){
+    const text = document.getElementById("word-text").value.trim();
+    const count = text ? text.split(/\s+/).length : 0;
+    document.getElementById("word-result").textContent = `${count} palabras`;
 }
