@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Herramientas online | AGweb</title>
+<title>Herramientas | AGweb</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -29,11 +28,9 @@
 
 <div class="tools-container">
 
-<!-- QR GENERATOR -->
-
 <div class="tool-box">
 
-<h2>QR Generator PRO</h2>
+<h2>QR Generator</h2>
 
 <input id="qr-text" placeholder="Introduce URL">
 
@@ -45,15 +42,13 @@
 
 <div id="qr-result"></div>
 
-<button onclick="downloadQR()">Descargar QR</button>
+<button onclick="downloadQR()">Descargar</button>
 
 </div>
 
-<!-- TIMER -->
-
 <div class="tool-box">
 
-<h2>Temporizador PRO</h2>
+<h2>Temporizador</h2>
 
 <input type="number" id="minutes" placeholder="Minutos">
 
@@ -66,49 +61,17 @@
 <button onclick="startTimer()">Start</button>
 <button onclick="pauseTimer()">Pause</button>
 <button onclick="resetTimer()">Reset</button>
-<button onclick="addTime()">+10s</button>
-<button onclick="removeTime()">-10s</button>
 
 </div>
 
-<!-- WORD COUNTER -->
-
 <div class="tool-box">
 
-<h2>Word Counter PRO</h2>
+<h2>Word Counter</h2>
 
-<textarea id="text-input" placeholder="Escribe aquí"></textarea>
+<textarea id="text-input" placeholder="Escribe texto"></textarea>
 
 <p>Palabras: <span id="words">0</span></p>
 <p>Caracteres: <span id="chars">0</span></p>
-<p>Sin espacios: <span id="charsNoSpace">0</span></p>
-<p>Tiempo lectura: <span id="reading">0</span> min</p>
-
-</div>
-
-<!-- LINK SHORTENER -->
-
-<div class="tool-box">
-
-<h2>Acortador de enlaces</h2>
-
-<input id="long-url" placeholder="Pega tu enlace">
-
-<button onclick="shortLink()">Acortar</button>
-
-<p id="short-result"></p>
-
-</div>
-
-<!-- REMOVE BG -->
-
-<div class="tool-box">
-
-<h2>Eliminar fondo imagen</h2>
-
-<input type="file" id="image-upload">
-
-<p>(Versión básica demostración)</p>
 
 </div>
 
@@ -117,5 +80,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
