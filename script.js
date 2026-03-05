@@ -1,56 +1,122 @@
-// COUNTDOWN TEMU
-const countdown = document.getElementById("countdown");
-if(countdown){
-    let endTime = new Date();
-    endTime.setHours(endTime.getHours()+24);
-    function updateCountdown(){
-        const now = new Date().getTime();
-        const distance = endTime-now;
-        const hours = Math.floor((distance/(1000*60*60))%24);
-        const minutes = Math.floor((distance/(1000*60))%60);
-        const seconds = Math.floor((distance/1000)%60);
-        countdown.innerHTML = `⏳ ${hours}h ${minutes}m ${seconds}s restantes`;
-        if(distance<0){ endTime.setHours(endTime.getHours()+24);}
-    }
-    setInterval(updateCountdown,1000);
-}
-
-// GENERADOR QR
 function generateQR(){
-    const text = document.getElementById("qr-text").value;
-    const color = document.getElementById("qr-color").value;
-    const bg = document.getElementById("qr-bg").value;
-    const qr = new QRious({
-        element: document.createElement('canvas'),
-        value: text,
-        background: bg,
-        foreground: color,
-        size: 200
-    });
-    const container = document.getElementById("qr-result");
-    container.innerHTML = "";
-    container.appendChild(qr.image);
+
+let text=document.getElementById("qr-text").value
+let color=document.getElementById("qr-color").value
+let size=document.getElementById("qr-size").value
+
+let url=`https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${text}&color=${color.replace("#","")}`
+
+document.getElementById("qr-result").innerHTML=`<img id="qr-img" src="${url}">`
+
 }
 
-// TEMPORIZADOR
-let timerInterval;
+function downloadQR(){
+
+let img=document.getElementById("qr-img").src
+
+let a=document.createElement("a")
+
+a.href=img
+
+a.download="qr.png"
+
+a.click()
+
+}
+
+let timer
+let timeLeft=0
+let totalTime=0
+
 function startTimer(){
-    clearInterval(timerInterval);
-    let minutes = parseInt(document.getElementById("timer-minutes").value) || 0;
-    let time = minutes*60;
-    const display = document.getElementById("timer-display");
-    timerInterval = setInterval(()=>{
-        let m = Math.floor(time/60);
-        let s = time%60;
-        display.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-        if(time<=0) clearInterval(timerInterval);
-        time--;
-    },1000);
+
+let minutes=document.getElementById("minutes").value
+
+if(timeLeft===0){
+
+timeLeft=minutes*60
+totalTime=timeLeft
+
 }
 
-// CONTADOR PALABRAS
-function countWords(){
-    const text = document.getElementById("word-text").value.trim();
-    const count = text ? text.split(/\s+/).length : 0;
-    document.getElementById("word-result").textContent = `${count} palabras`;
+timer=setInterval(updateTimer,1000)
+
 }
+
+function updateTimer(){
+
+if(timeLeft<=0){
+
+clearInterval(timer)
+
+let audio=new Audio("https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg")
+
+audio.play()
+
+return
+
+}
+
+timeLeft--
+
+let min=Math.floor(timeLeft/60)
+
+let sec=timeLeft%60
+
+document.getElementById("timer-display").innerText=
+
+`${min.toString().padStart(2,"0")}:${sec.toString().padStart(2,"0")}`
+
+let progress=((totalTime-timeLeft)/totalTime)*100
+
+document.getElementById("progress").style.width=progress+"%"
+
+}
+
+function pauseTimer(){
+
+clearInterval(timer)
+
+}
+
+function resetTimer(){
+
+clearInterval(timer)
+
+timeLeft=0
+
+document.getElementById("timer-display").innerText="00:00"
+
+document.getElementById("progress").style.width="0%"
+
+}
+
+function addTime(){
+
+timeLeft+=10
+
+}
+
+function removeTime(){
+
+timeLeft-=10
+
+if(timeLeft<0)timeLeft=0
+
+}
+
+document.getElementById("text-input").addEventListener("input",function(){
+
+let text=this.value
+
+let words=text.trim().split(/\s+/).filter(Boolean)
+
+document.getElementById("words").innerText=words.length
+
+document.getElementById("chars").innerText=text.length
+
+document.getElementById("charsNoSpace").innerText=text.replace(/\s/g,"").length
+
+document.getElementById("reading").innerText=Math.ceil(words.length/200)
+
+})
