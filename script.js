@@ -1,3 +1,5 @@
+// QR GENERATOR
+
 function generateQR(){
 
 let text=document.getElementById("qr-text").value
@@ -23,6 +25,9 @@ a.download="qr.png"
 a.click()
 
 }
+
+
+// TIMER
 
 let timer
 let timeLeft=0
@@ -60,7 +65,6 @@ return
 timeLeft--
 
 let min=Math.floor(timeLeft/60)
-
 let sec=timeLeft%60
 
 document.getElementById("timer-display").innerText=
@@ -105,6 +109,9 @@ if(timeLeft<0)timeLeft=0
 
 }
 
+
+// WORD COUNTER
+
 document.getElementById("text-input").addEventListener("input",function(){
 
 let text=this.value
@@ -120,3 +127,20 @@ document.getElementById("charsNoSpace").innerText=text.replace(/\s/g,"").length
 document.getElementById("reading").innerText=Math.ceil(words.length/200)
 
 })
+
+
+// LINK SHORTENER
+
+function shortLink(){
+
+let url=document.getElementById("long-url").value
+
+fetch(`https://tinyurl.com/api-create.php?url=${url}`)
+.then(res=>res.text())
+.then(data=>{
+
+document.getElementById("short-result").innerHTML=`<a href="${data}" target="_blank">${data}</a>`
+
+})
+
+}
