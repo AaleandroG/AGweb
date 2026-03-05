@@ -1,50 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Herramientas | AGweb</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Herramientas | AGweb</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+
 <header>
-    <div class="logo">AGweb</div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="temu.html">Ofertas</a>
-        <a href="about.html">Sobre mí</a>
-    </nav>
+
+<div class="logo">AGweb</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="tools.html">Herramientas</a>
+<a href="temu.html">Ofertas</a>
+<a href="about.html">Sobre mí</a>
+</nav>
+
 </header>
 
-<section class="tools-section" id="qr-generator">
-    <h2>🔗 Generador QR</h2>
-    <input type="text" id="qr-text" placeholder="Escribe la URL">
-    <input type="color" id="qr-color" value="#000000">
-    <input type="color" id="qr-bg" value="#ffffff">
-    <button onclick="generateQR()">Generar QR</button>
-    <div id="qr-result"></div>
-</section>
+<div class="tools-container">
 
-<section class="tools-section" id="timer">
-    <h2>⏱ Temporizador</h2>
-    <input type="number" id="timer-minutes" placeholder="Minutos">
-    <button onclick="startTimer()">Iniciar</button>
-    <div id="timer-display">00:00</div>
-</section>
+<div class="tool-box">
 
-<section class="tools-section" id="word-counter">
-    <h2>📝 Contador de Palabras</h2>
-    <textarea id="word-text" placeholder="Escribe tu texto aquí..."></textarea>
-    <button onclick="countWords()">Contar Palabras</button>
-    <div id="word-result">0 palabras</div>
-</section>
+<h2>QR Generator PRO</h2>
 
-<footer>
-    <p>© 2025 AGweb</p>
-    <p>Contacto: <a href="mailto:alejandrogarcia12345678910e@gmail.com">alejandrogarcia12345678910e@gmail.com</a></p>
-</footer>
+<input id="qr-text" placeholder="Introduce URL">
+
+<input type="color" id="qr-color" value="#000000">
+
+<input type="number" id="qr-size" value="200">
+
+<button onclick="generateQR()">Generar QR</button>
+
+<div id="qr-result"></div>
+
+<button onclick="downloadQR()">Descargar QR</button>
+
+</div>
+
+<div class="tool-box">
+
+<h2>Temporizador PRO</h2>
+
+<input type="number" id="minutes" placeholder="Minutos">
+
+<h3 id="timer-display">00:00</h3>
+
+<div class="progress-bar">
+
+<div id="progress"></div>
+
+</div>
+
+<button onclick="startTimer()">Start</button>
+<button onclick="pauseTimer()">Pause</button>
+<button onclick="resetTimer()">Reset</button>
+<button onclick="addTime()">+10s</button>
+<button onclick="removeTime()">-10s</button>
+
+</div>
+
+<div class="tool-box">
+
+<h2>Word Counter PRO</h2>
+
+<textarea id="text-input" placeholder="Escribe aquí"></textarea>
+
+<p>Palabras: <span id="words">0</span></p>
+<p>Caracteres: <span id="chars">0</span></p>
+<p>Sin espacios: <span id="charsNoSpace">0</span></p>
+<p>Tiempo lectura: <span id="reading">0</span> min</p>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
 </body>
+
 </html>
