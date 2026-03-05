@@ -60,3 +60,12 @@ footer a:hover { text-decoration:underline; }
   .hero p { font-size:16px; }
   .temu-hero h1 { font-size:36px; }
 }
+/* ABOUT PAGE */
+.about-hero { padding:100px 20px; text-align:center; background:linear-gradient(135deg,#2563eb,#3b82f6); color:white; border-radius:0 0 30px 30px; }
+.about-hero h1 { font-size:42px; margin-bottom:20px; }
+.about-hero p { font-size:18px; margin-bottom:20px; line-height:1.6; }
+
+.about-values { padding:60px 10%; background:#f0f4f8; border-radius:20px; max-width:800px; margin:40px auto; }
+.about-values h2 { text-align:center; font-size:28px; margin-bottom:30px; }
+.about-values ul { list-style:none; padding-left:0; }
+.about-values li { background:white; margin:10px 0; padding:15px 20px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.05); font-size:16px; }
