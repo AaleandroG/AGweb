@@ -1,57 +1,113 @@
+// GENERADOR QR
+
 function generateQR(){
 
-let text=document.getElementById("qrText").value
-let color=document.getElementById("qrColor").value
-let canvas=document.getElementById("qrCanvas")
+let text = document.getElementById("qrText").value
+let color = document.getElementById("qrColor").value
+let size = document.getElementById("qrSize").value
 
-let url=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${text}&color=${color.replace('#','')}`
-
-let img=new Image()
-
-img.onload=function(){
-
-canvas.width=200
-canvas.height=200
-
-let ctx=canvas.getContext("2d")
-ctx.drawImage(img,0,0)
-
+if(text === ""){
+alert("Introduce una URL")
+return
 }
 
-img.src=url
+let url = "https://api.qrserver.com/v1/create-qr-code/?size="+size+"x"+size+"&data="+encodeURIComponent(text)+"&color="+color.replace("#","")
+
+document.getElementById("qrImage").src = url
 
 }
 
 
+function downloadQR(){
+
+let img = document.getElementById("qrImage").src
+
+if(img === ""){
+alert("Genera primero el QR")
+return
+}
+
+let link = document.createElement("a")
+
+link.href = img
+link.download = "qr.png"
+
+link.click()
+
+}
+
+
+
+// GENERADOR PASSWORD
 
 function generatePassword(){
 
-let length=document.getElementById("length").value
+let length = document.getElementById("passLength").value
 
-let chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%"
+let chars = "abcdefghijklmnopqrstuvwxyz"
 
-let pass=""
+if(document.getElementById("upper").checked)
+chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+if(document.getElementById("numbers").checked)
+chars += "0123456789"
+
+if(document.getElementById("symbols").checked)
+chars += "!@#$%^&*()"
+
+let password = ""
 
 for(let i=0;i<length;i++){
 
-pass+=chars.charAt(Math.floor(Math.random()*chars.length))
+password += chars.charAt(Math.floor(Math.random()*chars.length))
 
 }
 
-document.getElementById("passwordResult").value=pass
+document.getElementById("passwordResult").value = password
 
 }
 
 
+function copyPassword(){
+
+let pass = document.getElementById("passwordResult")
+
+pass.select()
+
+document.execCommand("copy")
+
+alert("Contraseña copiada")
+
+}
+
+
+
+// GENERADOR USERNAME
 
 function generateUsername(){
 
-let names=["pixel","neo","alpha","shadow","nova","zen","astro"]
+let words = [
+"neo","pixel","astro","nova","shadow",
+"zen","alpha","omega","vortex","byte"
+]
 
-let num=Math.floor(Math.random()*999)
+let numbers = Math.floor(Math.random()*999)
 
-let name=names[Math.floor(Math.random()*names.length)]
+let name = words[Math.floor(Math.random()*words.length)]
 
-document.getElementById("usernameResult").value=name+num
+document.getElementById("usernameResult").value = name + numbers
+
+}
+
+
+function copyUsername(){
+
+let user = document.getElementById("usernameResult")
+
+user.select()
+
+document.execCommand("copy")
+
+alert("Usuario copiado")
 
 }
