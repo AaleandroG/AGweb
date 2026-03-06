@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AGweb - Herramientas Online</title>
+<title>AGweb | Herramientas Online</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
@@ -20,10 +20,12 @@
 <div class="logo">AGweb</div>
 
 <nav>
-<a href="#">Inicio</a>
-<a href="#tools">Herramientas</a>
-<a href="#temu">Ofertas</a>
+
+<a href="index.html">Inicio</a>
+<a href="tools.html">Herramientas</a>
+<a href="cursos.html">Cursos</a>
 <a href="about.html">Sobre mí</a>
+
 </nav>
 
 </header>
@@ -31,71 +33,40 @@
 
 <section class="hero">
 
-<h1>Herramientas Online <span>Rápidas y Gratis</span></h1>
+<h1>Herramientas Online <span>Gratis y Potentes</span></h1>
 
-<p>Genera QR, usa temporizadores y más herramientas útiles en segundos.</p>
+<p>Generadores, utilidades y recursos digitales para el día a día.</p>
 
 <div class="hero-buttons">
 
-<a href="#tools" class="btn-primary">🚀 Ver herramientas</a>
+<a href="tools.html" class="btn-primary">🚀 Usar herramientas</a>
 
-<a href="https://temu.to/k/e36aifkwdhk" class="btn-secondary" target="_blank">🔥 Ofertas Temu</a>
+<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-temu">🔥 Ofertas Temu</a>
 
 </div>
 
 </section>
 
 
-<section id="tools" class="tools">
+<section class="features">
 
-<h2>Herramientas</h2>
+<h2>Lo que puedes encontrar en AGweb</h2>
 
-<div class="tool-grid">
-
-<div class="card">
-
-<h3>QR Generator</h3>
-
-<input id="qrText" placeholder="Introduce URL">
-
-<input type="color" id="qrColor" value="#000000">
-
-<button onclick="generateQR()">Generar QR</button>
-
-<canvas id="qrCanvas"></canvas>
-
-</div>
-
+<div class="grid">
 
 <div class="card">
-
-<h3>Temporizador PRO</h3>
-
-<input id="minutes" type="number" placeholder="Minutos">
-
-<div id="timer">00:00</div>
-
-<div class="timer-buttons">
-
-<button onclick="startTimer()">Start</button>
-
-<button onclick="pauseTimer()">Pause</button>
-
-<button onclick="resetTimer()">Reset</button>
-
+<h3>Herramientas útiles</h3>
+<p>Generadores de QR, contraseñas seguras y utilidades digitales.</p>
 </div>
-
-</div>
-
 
 <div class="card">
+<h3>Ofertas y descuentos</h3>
+<p>Promociones exclusivas y oportunidades online.</p>
+</div>
 
-<h3>Contador de palabras</h3>
-
-<textarea id="textInput" placeholder="Escribe o pega texto"></textarea>
-
-<p>Palabras: <span id="wordCount">0</span></p>
-
+<div class="card">
+<h3>Cursos futuros</h3>
+<p>Aprende a generar ingresos con afiliación e inteligencia artificial.</p>
 </div>
 
 </div>
@@ -103,24 +74,22 @@
 </section>
 
 
-<section id="temu" class="temu">
+<section class="temu">
 
-<h2>🔥 Ofertas secretas Temu</h2>
+<h2>🔥 Ofertas destacadas</h2>
 
-<p>Descubre descuentos exclusivos disponibles por tiempo limitado.</p>
+<p>Aprovecha promociones disponibles por tiempo limitado.</p>
 
-<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-temu">VER OFERTA</a>
+<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-primary">VER OFERTAS</a>
 
 </section>
 
 
 <footer>
 
-<p>© 2026 AGweb - Creado por Alejandro</p>
+<p>© 2026 AGweb</p>
 
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
