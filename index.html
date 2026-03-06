@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AGweb | Herramientas online y ofertas</title>
-<meta name="description" content="Herramientas online gratis: generador QR, temporizador, contador de palabras y más. También ofertas exclusivas.">
+<title>AGweb - Herramientas Online</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -17,81 +20,107 @@
 <div class="logo">AGweb</div>
 
 <nav>
-<a href="index.html">Inicio</a>
-<a href="tools.html">Herramientas</a>
-<a href="temu.html">Ofertas</a>
+<a href="#">Inicio</a>
+<a href="#tools">Herramientas</a>
+<a href="#temu">Ofertas</a>
 <a href="about.html">Sobre mí</a>
 </nav>
 
 </header>
 
+
 <section class="hero">
 
-<h1>Herramientas online simples y potentes</h1>
+<h1>Herramientas Online <span>Rápidas y Gratis</span></h1>
 
-<p>Generador QR, temporizador, contador de palabras y más herramientas gratuitas.</p>
+<p>Genera QR, usa temporizadores y más herramientas útiles en segundos.</p>
 
 <div class="hero-buttons">
 
-<a class="btn-primary" href="tools.html">Usar herramientas</a>
+<a href="#tools" class="btn-primary">🚀 Ver herramientas</a>
 
-<a class="btn-secondary" href="temu.html">Ver ofertas</a>
+<a href="https://temu.to/k/e36aifkwdhk" class="btn-secondary" target="_blank">🔥 Ofertas Temu</a>
 
 </div>
 
 </section>
 
-<section class="features">
+
+<section id="tools" class="tools">
+
+<h2>Herramientas</h2>
+
+<div class="tool-grid">
 
 <div class="card">
 
 <h3>QR Generator</h3>
 
-<p>Crea códigos QR personalizados en segundos.</p>
+<input id="qrText" placeholder="Introduce URL">
 
-<a href="tools.html">Usar</a>
+<input type="color" id="qrColor" value="#000000">
 
-</div>
+<button onclick="generateQR()">Generar QR</button>
 
-<div class="card">
-
-<h3>Temporizador</h3>
-
-<p>Control total del tiempo con temporizador avanzado.</p>
-
-<a href="tools.html">Usar</a>
+<canvas id="qrCanvas"></canvas>
 
 </div>
 
+
 <div class="card">
 
-<h3>Word Counter</h3>
+<h3>Temporizador PRO</h3>
 
-<p>Cuenta palabras y caracteres instantáneamente.</p>
+<input id="minutes" type="number" placeholder="Minutos">
 
-<a href="tools.html">Usar</a>
+<div id="timer">00:00</div>
+
+<div class="timer-buttons">
+
+<button onclick="startTimer()">Start</button>
+
+<button onclick="pauseTimer()">Pause</button>
+
+<button onclick="resetTimer()">Reset</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Contador de palabras</h3>
+
+<textarea id="textInput" placeholder="Escribe o pega texto"></textarea>
+
+<p>Palabras: <span id="wordCount">0</span></p>
+
+</div>
 
 </div>
 
 </section>
 
-<section class="promo">
 
-<h2>Ofertas recomendadas</h2>
+<section id="temu" class="temu">
 
-<p>Descubre productos con grandes descuentos.</p>
+<h2>🔥 Ofertas secretas Temu</h2>
 
-<a class="btn-primary" href="https://temu.to/k/e36aifkwdhk">Ver ofertas</a>
+<p>Descubre descuentos exclusivos disponibles por tiempo limitado.</p>
+
+<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-temu">VER OFERTA</a>
 
 </section>
+
 
 <footer>
 
-<p>© 2026 AGweb</p>
-
-<p>Contacto: alejandrogarcia12345678910e@gmail.com</p>
+<p>© 2026 AGweb - Creado por Alejandro</p>
 
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
