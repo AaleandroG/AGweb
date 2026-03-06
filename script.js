@@ -1,99 +1,99 @@
-function generateQR(){
+// WORD COUNTER
 
-let text=document.getElementById("qr-text").value
-let color=document.getElementById("qr-color").value
-let size=document.getElementById("qr-size").value
+const textInput = document.getElementById("textInput");
 
-let url=`https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${text}&color=${color.replace("#","")}`
+if(textInput){
 
-document.getElementById("qr-result").innerHTML=`<img id="qr-img" src="${url}">`
+textInput.addEventListener("input",function(){
 
-}
+let words = this.value.trim().split(/\s+/).filter(Boolean);
 
-function downloadQR(){
+document.getElementById("wordCount").textContent = words.length;
 
-let img=document.getElementById("qr-img").src
-
-let a=document.createElement("a")
-
-a.href=img
-
-a.download="qr.png"
-
-a.click()
+});
 
 }
 
-let timer
-let timeLeft=0
-let totalTime=0
+
+// TIMER
+
+let timer;
+let timeLeft = 0;
 
 function startTimer(){
 
-let minutes=document.getElementById("minutes").value
+let minutes = document.getElementById("minutes").value;
 
-if(timeLeft===0){
+if(minutes){
+timeLeft = minutes * 60;
+}
 
-timeLeft=minutes*60
-totalTime=timeLeft
+clearInterval(timer);
+
+timer = setInterval(()=>{
+
+if(timeLeft <=0){
+
+clearInterval(timer);
+
+return;
 
 }
 
-timer=setInterval(updateTimer,1000)
+timeLeft--;
 
-}
+let m = Math.floor(timeLeft/60);
+let s = timeLeft%60;
 
-function updateTimer(){
+document.getElementById("timer").textContent =
+`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 
-if(timeLeft<=0){
-
-clearInterval(timer)
-
-return
-
-}
-
-timeLeft--
-
-let min=Math.floor(timeLeft/60)
-let sec=timeLeft%60
-
-document.getElementById("timer-display").innerText=
-
-`${min.toString().padStart(2,"0")}:${sec.toString().padStart(2,"0")}`
-
-let progress=((totalTime-timeLeft)/totalTime)*100
-
-document.getElementById("progress").style.width=progress+"%"
+},1000);
 
 }
 
 function pauseTimer(){
 
-clearInterval(timer)
+clearInterval(timer);
 
 }
 
 function resetTimer(){
 
-clearInterval(timer)
+clearInterval(timer);
 
-timeLeft=0
+timeLeft=0;
 
-document.getElementById("timer-display").innerText="00:00"
-
-document.getElementById("progress").style.width="0%"
+document.getElementById("timer").textContent="00:00";
 
 }
 
-document.getElementById("text-input").addEventListener("input",function(){
 
-let text=this.value
+// QR GENERATOR
 
-let words=text.trim().split(/\s+/).filter(Boolean)
+function generateQR(){
 
-document.getElementById("words").innerText=words.length
+let text = document.getElementById("qrText").value;
 
-document.getElementById("chars").innerText=text.length
+let color = document.getElementById("qrColor").value;
 
-})
+let canvas = document.getElementById("qrCanvas");
+
+let url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(text)}&color=${color.replace('#','')}`;
+
+let img = new Image();
+
+img.onload=function(){
+
+canvas.width=200;
+canvas.height=200;
+
+let ctx = canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+}
+
+img.src=url;
+
+}
