@@ -37,41 +37,78 @@
 
 <div class="tool-grid">
 
+
 <div class="card">
 
-<h3>Generador QR</h3>
+<h3>Generador QR PRO</h3>
 
 <input id="qrText" placeholder="Introduce URL">
 
-<input type="color" id="qrColor">
+<label>Color QR</label>
+<input type="color" id="qrColor" value="#000000">
+
+<label>Tamaño</label>
+<select id="qrSize">
+<option value="200">200px</option>
+<option value="300">300px</option>
+<option value="400">400px</option>
+</select>
 
 <button onclick="generateQR()">Generar QR</button>
 
-<canvas id="qrCanvas"></canvas>
+<br><br>
+
+<img id="qrImage">
+
+<br>
+
+<button onclick="downloadQR()">Descargar QR</button>
 
 </div>
+
 
 
 <div class="card">
 
 <h3>Generador de contraseñas</h3>
 
-<input type="number" id="length" placeholder="Longitud (ej: 12)">
+<label>Longitud</label>
+<input type="number" id="passLength" value="12">
 
-<button onclick="generatePassword()">Generar contraseña</button>
+<label>
+<input type="checkbox" id="upper" checked>
+Mayúsculas
+</label>
 
-<input id="passwordResult">
+<label>
+<input type="checkbox" id="numbers" checked>
+Números
+</label>
+
+<label>
+<input type="checkbox" id="symbols">
+Símbolos
+</label>
+
+<button onclick="generatePassword()">Generar</button>
+
+<input id="passwordResult" readonly>
+
+<button onclick="copyPassword()">Copiar</button>
 
 </div>
 
 
+
 <div class="card">
 
-<h3>Generador nombre usuario</h3>
+<h3>Generador de usuario</h3>
 
-<button onclick="generateUsername()">Generar</button>
+<button onclick="generateUsername()">Generar usuario</button>
 
-<input id="usernameResult">
+<input id="usernameResult" readonly>
+
+<button onclick="copyUsername()">Copiar</button>
 
 </div>
 
