@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -18,66 +19,76 @@
 <div class="logo">AGweb</div>
 
 <nav>
+
 <a href="index.html">Inicio</a>
 <a href="tools.html">Herramientas</a>
-<a href="temu.html">Ofertas</a>
+<a href="cursos.html">Cursos</a>
 <a href="about.html">Sobre mí</a>
+
 </nav>
 
 </header>
 
-<div class="tools-container">
 
-<div class="tool-box">
+<section class="tools">
 
-<h2>QR Generator</h2>
+<h1>Herramientas Online</h1>
 
-<input id="qr-text" placeholder="Introduce URL">
 
-<input type="color" id="qr-color" value="#000000">
+<div class="tool-grid">
 
-<input type="number" id="qr-size" value="200">
+<div class="card">
+
+<h3>Generador QR</h3>
+
+<input id="qrText" placeholder="Introduce URL">
+
+<input type="color" id="qrColor">
 
 <button onclick="generateQR()">Generar QR</button>
 
-<div id="qr-result"></div>
-
-<button onclick="downloadQR()">Descargar</button>
+<canvas id="qrCanvas"></canvas>
 
 </div>
 
-<div class="tool-box">
 
-<h2>Temporizador</h2>
+<div class="card">
 
-<input type="number" id="minutes" placeholder="Minutos">
+<h3>Generador de contraseñas</h3>
 
-<h3 id="timer-display">00:00</h3>
+<input type="number" id="length" placeholder="Longitud (ej: 12)">
 
-<div class="progress-bar">
-<div id="progress"></div>
-</div>
+<button onclick="generatePassword()">Generar contraseña</button>
 
-<button onclick="startTimer()">Start</button>
-<button onclick="pauseTimer()">Pause</button>
-<button onclick="resetTimer()">Reset</button>
+<input id="passwordResult">
 
 </div>
 
-<div class="tool-box">
 
-<h2>Word Counter</h2>
+<div class="card">
 
-<textarea id="text-input" placeholder="Escribe texto"></textarea>
+<h3>Generador nombre usuario</h3>
 
-<p>Palabras: <span id="words">0</span></p>
-<p>Caracteres: <span id="chars">0</span></p>
+<button onclick="generateUsername()">Generar</button>
+
+<input id="usernameResult">
+
+</div>
+
 
 </div>
 
-</div>
+</section>
+
+
+<footer>
+
+<p>© 2026 AGweb</p>
+
+</footer>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
