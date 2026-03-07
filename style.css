@@ -110,3 +110,12 @@ background:#111;
 color:white;
 margin-top:40px;
 }
+.coming-soon{
+background:linear-gradient(90deg,#ff9800,#ff5722);
+color:white;
+padding:12px 20px;
+border-radius:8px;
+display:inline-block;
+font-weight:bold;
+margin-top:10px;
+}
