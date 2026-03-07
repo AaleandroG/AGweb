@@ -111,3 +111,10 @@ document.execCommand("copy")
 alert("Usuario copiado")
 
 }
+const user = localStorage.getItem("user")
+
+if(user){
+
+console.log("Usuario logueado:",user)
+
+}
