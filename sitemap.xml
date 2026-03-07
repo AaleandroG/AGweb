@@ -4,19 +4,22 @@
 
 <url>
 <loc>https://aaleandrog.github.io/AGweb/</loc>
+<priority>1.0</priority>
 </url>
 
 <url>
 <loc>https://aaleandrog.github.io/AGweb/tools.html</loc>
+<priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://aaleandrog.github.io/AGweb/about.html</loc>
+<priority>0.7</priority>
 </url>
 
 <url>
 <loc>https://aaleandrog.github.io/AGweb/login.html</loc>
+<priority>0.6</priority>
 </url>
 
 </urlset>
-google-site-verification: google35718dab8097d3c5.html
