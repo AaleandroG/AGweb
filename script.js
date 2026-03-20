@@ -1,1 +1,1 @@
-// GENERADOR QR
+
