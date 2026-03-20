@@ -1,108 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AGweb | Herramientas Online</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGweb - Alejandro Garcia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
-
 <body>
 
-<header>
+  <!-- Navbar -->
+  <nav>
+    <a href="#hero">Inicio</a>
+    <a href="#about">Sobre mí</a>
+    <a href="#tools">Herramientas</a>
+    <a href="#donate">Donaciones</a>
+  </nav>
 
-<div class="logo">AGweb</div>
+  <!-- Hero -->
+  <section id="hero">
+    <h1>AGweb</h1>
+    <p>Tu centro de herramientas digitales todo en uno. Profesional, rápido y confiable.</p>
+    <div class="hero-buttons">
+      <a href="#tools" class="btn">Explorar Herramientas</a>
+      <a href="#donate" class="btn">Apóyame</a>
+    </div>
+    <div id="particles"></div>
+  </section>
 
-<nav>
+  <!-- Sobre mí -->
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>Soy Alejandro Garcia, creador de AGweb. He diseñado esta web para ofrecer herramientas digitales útiles, rápidas y confiables para cualquier persona. Explora, genera, calcula y diviértete.</p>
+  </section>
 
-<a href="index.html">Inicio</a>
-<a href="tools.html">Herramientas</a>
-<a href="cursos.html">Cursos</a>
-<a href="about.html">Sobre mí</a>
+  <!-- Herramientas -->
+  <section id="tools">
+    <h2>Herramientas Profesionales</h2>
 
-</nav>
+    <!-- Reloj -->
+    <div class="tool-card">
+      <h3>Reloj en tiempo real</h3>
+      <div id="clock">00:00:00</div>
+    </div>
 
-</header>
+    <!-- Generador de QR -->
+    <div class="tool-card">
+      <h3>Generador de QR</h3>
+      <input type="text" id="qr-text" placeholder="Escribe algo...">
+      <button onclick="generateQR()">Generar QR</button>
+      <div id="qr-code"></div>
+    </div>
 
+    <!-- Notas rápidas -->
+    <div class="tool-card">
+      <h3>Notas rápidas</h3>
+      <textarea id="note-text" placeholder="Escribe algo..."></textarea>
+      <button onclick="saveNote()">Guardar nota</button>
+      <p id="note-saved"></p>
+    </div>
 
-<section class="hero">
+    <!-- Generador de contraseñas -->
+    <div class="tool-card">
+      <h3>Generador de contraseñas</h3>
+      <button onclick="generatePass()">Generar contraseña</button>
+      <p id="pass-output"></p>
+    </div>
 
-<h1>Herramientas Online <span>Gratis y Potentes</span></h1>
+    <!-- Conversor de monedas -->
+    <div class="tool-card">
+      <h3>Conversor de Monedas</h3>
+      <input type="number" id="currency-amount" placeholder="Cantidad">
+      <select id="currency-from">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="BTC">BTC</option>
+      </select>
+      <select id="currency-to">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="BTC">BTC</option>
+      </select>
+      <button onclick="convertCurrency()">Convertir</button>
+      <p id="currency-output"></p>
+    </div>
 
-<p>Generadores, utilidades y recursos digitales para el día a día.</p>
+    <!-- Traductor simple -->
+    <div class="tool-card">
+      <h3>Traductor Simple</h3>
+      <input type="text" id="translate-text" placeholder="Escribe tu texto">
+      <select id="translate-lang">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+        <option value="fr">Francés</option>
+      </select>
+      <button onclick="translateText()">Traducir</button>
+      <p id="translate-output"></p>
+    </div>
 
-<div class="hero-buttons">
+    <!-- Conversor de unidades -->
+    <div class="tool-card">
+      <h3>Conversor de Unidades</h3>
+      <input type="number" id="unit-value" placeholder="Cantidad">
+      <select id="unit-type">
+        <option value="CtoF">°C → °F</option>
+        <option value="FtoC">°F → °C</option>
+        <option value="kmtoM">km → millas</option>
+        <option value="Mtokm">millas → km</option>
+      </select>
+      <button onclick="convertUnit()">Convertir</button>
+      <p id="unit-output"></p>
+    </div>
 
-<a href="tools.html" class="btn-primary">🚀 Usar herramientas</a>
+  </section>
 
-<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-temu">🔥 Ofertas Temu</a>
+  <!-- Donaciones -->
+  <footer id="donate">
+    <h2>Apóyame</h2>
+    <p>Si quieres apoyar este proyecto, puedes hacerlo vía:</p>
+    <p>Bitcoin: <a href="bitcoin:bc1qpdykrz5rnaj33awevyyc0cv0u8suxr2wmnank7">bc1qpdykrz5rnaj33awevyyc0cv0u8suxr2wmnank7</a></p>
+    <p>Bizum (España): <a href="tel:615099691">615099691</a></p>
+  </footer>
 
-</div>
-
-</section>
-
-
-<section class="features">
-
-<h2>Lo que puedes encontrar en AGweb</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Herramientas útiles</h3>
-<p>Generadores de QR, contraseñas seguras y utilidades digitales.</p>
-</div>
-
-<div class="card">
-<h3>Ofertas y descuentos</h3>
-<p>Promociones exclusivas y oportunidades online.</p>
-</div>
-
-<div class="card">
-<h3>Cursos futuros</h3>
-<p>Aprende a generar ingresos con afiliación e inteligencia artificial.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="temu">
-
-<h2>🔥 Ofertas destacadas</h2>
-
-<p>Aprovecha promociones disponibles por tiempo limitado.</p>
-
-<a href="https://temu.to/k/e36aifkwdhk" target="_blank" class="btn-primary">VER OFERTAS</a>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 AGweb</p>
-
-</footer>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
-<a href="login.html">Login</a>
-<meta name="description" content="Herramientas online gratuitas: generador QR, generador de contraseñas, generador de usuarios y más.">
-
-<meta name="keywords" content="herramientas online, generador qr, generador contraseñas, herramientas gratis">
-
-<meta name="author" content="Alejandro">
-
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="AGweb - Herramientas Online Gratis">
-
-<meta property="og:description" content="Usa herramientas online gratuitas como generador QR, contraseñas y más.">
-
-<meta property="og:type" content="website">
